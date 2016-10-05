@@ -13,7 +13,7 @@ class StockB {
     private double totalShareValue;
 
     // full 3-args constructor
-    StockB(String name, int shares, double shareValue) {
+    StockB(String name, double shareValue, int shares) {
 
         this.name = name;
         this.shares = shares;
@@ -25,7 +25,7 @@ class StockB {
     // two-args constructor for creating stocks with no shares but a shareValue
     StockB (String name, double shareValue) {
 
-        this(name, 0, shareValue);
+        this(name, shareValue, 0);
 
     }
 
