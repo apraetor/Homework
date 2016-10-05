@@ -1,0 +1,12 @@
+2.7:
+    Write a program that takes int speed and int distance and returns float time
+
+2.8
+    Write a program which takes time in hours, minutes and seconds and 
+    returns the total number of seconds. 
+
+2.11
+    Write a program which takes a $ amount as double, then returns the number
+    of 10s, 5s, etc. required (using as few bills as required, i.e. favor large
+    denominations)
+
