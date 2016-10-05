@@ -27,10 +27,12 @@ class Problem3 {
         String choice = "";
 
         // create a couple of test stocks StockB for demo purposes
-        StockB orcl = new StockB("ORCL", 10, 34.35);
-        StockB goog = new StockB("GOOG", 1, 804.06);
+        StockB orcl = new StockB("ORCL", 34.35, 10);
+        StockB goog = new StockB("GOOG", 804.06, 1);
+
+        // we can also add stocks with a name + price but no shares
         StockB aapl = new StockB("AAPL", 113.67);
-        // StockB brk-a = new StockB("BRK-A", 216220);
+        
 
         // add StockB test stocks to ArrayList
         holdings.add(orcl);
@@ -185,12 +187,12 @@ class Problem3 {
 
         // finds stock or returns new empty StockB instance
         foundStock = getStock(holdings, name);
- 
+
         // name is empty if stock not in list
         if (foundStock.getName() == "") {
             
             // add new StockB to list if doesn't exist
-            holdings.add(new StockB(name, shares, shareValue));
+            holdings.add(new StockB(name, shareValue, shares));
         
         // if stock found, use existing methods to add more shares
         // and update price
@@ -247,6 +249,9 @@ class Problem3 {
         System.out.print("Shares to sell: ");
         int shares = Integer.parseInt(scan.nextLine());
 
+        System.out.print("Sell Price: ");
+        double sellPrice = Double.parseDouble(scan.nextLine());
+
         // find the instance
         toSell = getStock(holdings, name);
 
@@ -258,7 +263,7 @@ class Problem3 {
 
         }
             // sell the shares if found
-            else {toSell.sellShares(shares);}
+            else {toSell.sellShares(shares, sellPrice);}
 
     }
 
