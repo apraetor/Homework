@@ -12,7 +12,7 @@ import java.util.Scanner;
 class Problem1 {
 
     public static void main(String[] args) {
-
+        
         Random generator = new Random();
         Person p = new Person();
 
@@ -25,6 +25,7 @@ class Problem1 {
         String num = Integer.toString((generator.nextInt(90) + 10));
 
         System.out.println(f + l + num);
+        
 
     }
     

@@ -18,7 +18,7 @@ class Problem2 {
         // split input string on ':' and store to array
         String[] splitTime = inputTime.split(":");
 
-        // for (String element : splitTime) {System.out.println(element);}
+        for (String element : splitTime) {System.out.println(element);}
 
         int totalSeconds = Integer.parseInt(splitTime[2]);
         totalSeconds += (Integer.parseInt(splitTime[1]) * 60);

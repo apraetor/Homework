@@ -51,6 +51,18 @@ class StockB {
 
     }
 
+    // sells all of the stock. 
+    public int sellStock(double shareValue) {
+        
+        int sharesTemp = this.shares;
+
+            this.shares = 0;
+            setShareValue(shareValue);
+
+        return sharesTemp;
+
+    }
+
     public void sellShares(int shares, double shareValue) {
 
         if (this.shares >= shares) {
@@ -62,31 +74,21 @@ class StockB {
 
     }
 
-    // update to include shareValue
-    public int sellStock(double shareValue) {
-        
-        int sharesTemp = this.shares;
-        
-        if (this.shares == 0) {
-
-            System.out.print("\nYou own no shares!");
-
-        } else {
-
-            this.shares = 0;
-            setShareValue(shareValue);
-
-        }
-
-        
-        return sharesTemp;
-
-    }
-
     public void setShareValue(double shareValue) {
 
         this.shareValue = shareValue;
         this.totalShareValue = (double) this.shares * this.shareValue;
+
+    }
+
+    public void displayStock() {
+
+        // System.out.format("\nStock Symbol: %s\n", this.name);
+        // System.out.format("Share Price: %.2f\n", this.shareValue);
+        // System.out.format("Total Value: %.2f", this.totalShareValue);
+        String format = "%s\t\t%d\t$%.2f\t\t$%.2f\n";
+        // formats the output
+        System.out.format(format, this.getName(), this.getShares(), this.getShareValue(), this.getTotalShareValue());
 
     }
 

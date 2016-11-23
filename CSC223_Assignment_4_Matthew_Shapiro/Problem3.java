@@ -38,6 +38,7 @@ class Problem3 {
         holdings.add(orcl);
         holdings.add(goog);
         holdings.add(aapl);
+        // holdings.add(new StockB("GOOG", 804.06, 1));
         // holdings.add(brk-a);
 
         
@@ -53,28 +54,36 @@ class Problem3 {
 
                 case "A" : 
                     
+                    // adds a new StockB object. Only a stock symbol is
+                    // required; you can add stocks of which you own no shares.
                     addStock(holdings);
                     break;
 
 
                 case "B" : 
 
+                    // buys shares of any stock already in the list.
                     buyShares(holdings);
                     break;
 
                 case "S" : 
 
+                    // sells any number of shares of a stock, but leaves the
+                    // stock in the list (StockB instance persists).
                     sellShares(holdings);
                     break;
 
                 case "U" : 
 
+                    // updates the stock price.
                     updateStockPrice(holdings);
                     break;
 
                 case "X" :
 
-                    sellAllShares(holdings);
+                    // sells all shares of the stock and removes the object
+                    // from the list. 
+                    sellStock(holdings);
                     break;
 
                 case "R" :
@@ -84,7 +93,12 @@ class Problem3 {
 
             }
 
-            if (choice.equals("Q")) {clearScreen(); break;}
+            if (choice.equals("Q")) {
+            
+                clearScreen();
+                break;
+
+            }
 
         } while (true);
 
@@ -96,7 +110,7 @@ class Problem3 {
         printStocks(holdings);
         System.out.println("\n************************************************************");
         System.out.println("[A]dd Stock | [B]uy Shares | [S]ell Shares | [U]pdate Stock Price");
-        System.out.println("[X] Sell All Shares | [R]emove | [Q]uit");
+        System.out.println("[X] Sell Stock | [R]emove | [Q]uit");
         System.out.print("Choice: ");
 
     }
@@ -104,7 +118,7 @@ class Problem3 {
     public static void printStocks(ArrayList<StockB> holdings) {
 
         clearScreen();
-        String format = "%s\t\t%d\t$%.2f\t\t$%.2f\n";
+        
 
         System.out.println("Symbol\t\tShares\tPrice\t\tTotal Value");
         System.out.println("------------------------------------------------------------");
@@ -112,13 +126,13 @@ class Problem3 {
         for (StockB stock : holdings) {
 
             // print out the info for each stock in the list
-            System.out.format(format, stock.getName(), stock.getShares(), stock.getShareValue(), stock.getTotalShareValue());
+            stock.displayStock();
 
         }
 
     }
 
-    public static void sellAllShares(ArrayList<StockB> holdings) {
+    public static void sellStock(ArrayList<StockB> holdings) {
 
         Scanner scan = new Scanner(System.in);
 
@@ -139,9 +153,21 @@ class Problem3 {
         } else {
 
             int shares = toSellAll.sellStock(sellPrice);
-            holdings.remove(toSellAll);
-            System.out.format("\n%d shares sold\n", shares);
-            scan.nextLine();
+
+            if (shares == 0) {
+            
+                System.out.println("You own no shares!");
+                scan.nextLine();
+            
+            } else {
+
+                // remove stock obj from array so garbage collection can eat it
+                holdings.remove(toSellAll);
+                System.out.format("\n%d shares sold\n", shares);
+                scan.nextLine();
+
+
+            }
 
         }
 

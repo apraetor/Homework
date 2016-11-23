@@ -13,9 +13,12 @@ class Problem3 {
 
         Scanner scan = new Scanner(System.in);
 
+        // print message, but leave cursor on current line
         System.out.print("Enter amount: $");
-        double amount = scan.nextDouble();
-        // cast product to (int); we only care about integer component
+        double amount = Double.parseDouble(scan.nextLine());
+        
+        // multiply by 100 so we're working with pennies. Then we only care
+        // about the integer component. Cast product to (int)
         // .round() to the nearest cent to handle .9999999999
         int amountCents = (int) Math.round((amount * 100));
 
@@ -23,7 +26,7 @@ class Problem3 {
 
         // number of *tens* is integer division result
         tens = amountCents / 1000;
-        // amountCents becomes integer division remainder (modulo)
+        // remaining amountCents becomes integer division remainder (modulo)
         amountCents %= 1000;
 
         // repeat process in order of descending denomination

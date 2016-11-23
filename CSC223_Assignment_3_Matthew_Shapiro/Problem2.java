@@ -33,8 +33,11 @@ class Problem2 {
             first[i] = generator.nextInt(8);
         }
         
+        // initialize *a* to empty String
         String a = "";
-        // concat each integer onto str *a*
+        
+        // for each integer *element* in array *first*
+        // concatenate the *element* onto String *a*
         for (int element : first) {
             a += Integer.toString(element);
         }
@@ -47,7 +50,9 @@ class Problem2 {
 
         Random generator = new Random();
 
+        // assign *second* random value 0-655
         int second = generator.nextInt(656);
+        // convert int to String
         String b = Integer.toString(second);
         // pad out to 3 digits (so we can have numbers with leading 0's)
         b = ("000" + b).substring(b.length());
@@ -59,7 +64,9 @@ class Problem2 {
 
         Random generator = new Random();
 
+        // assign *third* value 0 - 9999
         int third = generator.nextInt(10000);
+        // to String
         String c = Integer.toString(third);
         // padding
         c = ("0000" + c).substring(c.length());

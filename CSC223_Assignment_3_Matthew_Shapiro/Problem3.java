@@ -25,14 +25,19 @@ class Problem3 {
 
     }
 
+    // uses the Pythagorean theorem to find the hypotenuse
     static double calcDistance(Points a, Points b) {
 
         double xComponent, yComponent;
 
+        // performs (deltaX)^2
         xComponent = Math.pow((b.getX() - a.getX()), 2);
+        // performs (deltaY)^2
         yComponent = Math.pow((b.getY() - a.getY()), 2);
 
+        // returns the square-root of the sum of the squares
         return Math.sqrt(xComponent + yComponent);
+        
 
     }
 
