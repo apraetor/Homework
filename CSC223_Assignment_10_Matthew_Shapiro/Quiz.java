@@ -41,6 +41,9 @@ class Quiz {
             quizResults.put(q, q.answerCorrect(scan.nextLine()));
         }
 
+        // calculate total correct, assign to field *totalCorrect*
+        calcTotalCorrect();
+
         System.out.println("\n***** End of Quiz! *****\n");
     }
 
@@ -57,8 +60,7 @@ class Quiz {
                 row += "Incorrect";
             }
         }
-        // calculate total correct, assign to field *totalCorrect*
-        calcTotalCorrect();
+
         System.out.format("Total Correct: %d", this.totalCorrect);
 
     }
