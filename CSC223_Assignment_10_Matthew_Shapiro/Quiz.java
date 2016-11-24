@@ -18,6 +18,7 @@ class Quiz {
 
     public Quiz() {
         this.totalCorrect = 0;
+        this.score = 0;
     }
 
     public void add(Question q) {
