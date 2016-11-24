@@ -56,7 +56,7 @@ public class Question implements Complexity
    //-----------------------------------------------------------------
    public boolean answerCorrect (String candidateAnswer)
    {
-      return answer.equals(candidateAnswer);
+      return answer.toUpperCase().equals(candidateAnswer.toUpperCase());
    }
 
    //-----------------------------------------------------------------
