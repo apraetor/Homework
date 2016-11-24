@@ -16,6 +16,7 @@ class QuizTime {
         q.add(new Question("What is the answer to life, the universe, and everything?", "42"));
         q.add(new Question("What is 2 + 4?", "6"));
         q.add(new Question("What is 6 * 7?", "42"));
+        q.add(new Question("Dihydrogen monoxide, or H2O, is better known what what name?", "water"));
 
         // gives the Quiz
         q.giveQuiz();
