@@ -14,7 +14,7 @@ class Quiz {
 
     private List<Question> questionList = new ArrayList<Question>();
     private Hashtable<Question, Boolean> quizResults = new Hashtable<Question, Boolean>();
-    private int totalCorrect;
+    private int totalCorrect, score;
 
     public Quiz() {
         this.totalCorrect = 0;
@@ -59,9 +59,11 @@ class Quiz {
             } else {
                 row += "Incorrect";
             }
+            System.out.println(row);
         }
 
-        System.out.format("Total Correct: %d", this.totalCorrect);
+        System.out.format("\nTotal Correct: %d", this.totalCorrect);
+        System.out.format("\nScore: %d%%", this.score);
 
     }
 
@@ -73,6 +75,7 @@ class Quiz {
            }
         }
         this.totalCorrect = counter;
+        this.score = (this.totalCorrect * 100) / questionList.size();
     }
 
 
