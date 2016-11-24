@@ -69,10 +69,10 @@ class Quiz {
 
     public void calcTotalCorrect() {
         int counter = 0;
-        for (int idx = 0; idx < questionList.size(); idx++) {
-           if (quizResults.get(questionList.get(idx))) {
-            counter++;
-           }
+        for (Question q : questionList) {
+            if (quizResults.get(q)) {
+                counter++;
+            }
         }
         this.totalCorrect = counter;
         this.score = (this.totalCorrect * 100) / questionList.size();
