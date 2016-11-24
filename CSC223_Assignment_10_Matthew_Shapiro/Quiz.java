@@ -17,8 +17,6 @@ class Quiz {
     private int totalCorrect;
 
     public Quiz() {
-        this.add(new Question("What is 2 + 4?", "6"));
-        this.add(new Question("What is 6 * 7?", "42"));
         this.totalCorrect = 0;
     }
 
