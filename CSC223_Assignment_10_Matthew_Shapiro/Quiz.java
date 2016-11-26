@@ -14,6 +14,8 @@ class Quiz {
 
     private List<Question> questionList = new ArrayList<Question>();
     private Hashtable<Question, Boolean> quizResults = new Hashtable<Question, Boolean>();
+    // totalCorrect is dependent on results stored in hashtable quizResults
+    // score is dependent on totalCorrect; *score* = *totalCorrect* / (number of questions)
     private int totalCorrect, score;
 
     public Quiz() {
