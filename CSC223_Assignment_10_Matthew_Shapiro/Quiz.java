@@ -40,6 +40,7 @@ class Quiz {
         for (Question q : questionList) {
             // ask the question
             System.out.print(q.getQuestion() + " ");
+            // prompt for an answer,
             // check the result, and store true/false to results table
             quizResults.put(q, q.answerCorrect(scan.nextLine()));
         }
