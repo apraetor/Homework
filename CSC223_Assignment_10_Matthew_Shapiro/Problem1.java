@@ -34,7 +34,7 @@ class Problem1 {
     }
 
     public static void printArray(int[] counters) {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < counters.length; i++) {
             // ranges to display are (i * 10 + 1) (i.e 1, 11, 21, 31 etc.) and (i * 10 + 10) (i.e. 10, 20, 30, etc.)
             System.out.format("%d - %d: \t| %s\n", (i * 10) + 1, (i * 10) + 10, genStars(counters[i]));
         }
