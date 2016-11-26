@@ -22,14 +22,15 @@ class Problem2 {
 
         String str = scan.nextLine();
         char character;
-        List lst = Arrays.asList('A', 'E', 'I', 'O', 'U');
+        List<Character> lst = Arrays.asList('A', 'E', 'I', 'O', 'U');
         
 
         for (int idx = 0; idx < str.length(); idx++) {
 
             character = str.charAt(idx);
             switch (character) {
-
+                // if char at current index matches a case:
+                // increment counter, skip to next iteration of loop
                 case 'e':
                     e++;
                     continue;
@@ -55,7 +56,7 @@ class Problem2 {
                     continue;
 
             }
-
+            // all uppercase vowels are counted together, per assignment specs
             if (lst.contains(character)) {
                 upperVowels++;
             }
@@ -63,9 +64,9 @@ class Problem2 {
             
 
         }
-
+        // notVowels is, by definition, every character which hasn't previously been counted
         int notVowels = str.length() - (a + e + i + o + u + upperVowels + spaces);
-
+        // print some output
         System.out.format("\na: %s\te: %s\ti: %s\to: %s\tu: %s\n", a, e, i, o, u);
         System.out.format("Spaces: %d\tNon-space & non-vowel chars: %d\n", spaces, notVowels);
 
