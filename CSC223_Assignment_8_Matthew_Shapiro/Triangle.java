@@ -53,6 +53,7 @@ class Triangle {
 
     }
 
+    // print pyramid by recursively calling function, but using the inner loops
     static void genRow(char letter, char usrLetter) {
 
         
@@ -83,9 +84,9 @@ class Triangle {
 
     }
 
+    // print the pyramid using one outer loop and three parallel inner loops,
+    // per assignment specs
     static void genRowBoring(char usrLetter) {
-
-        
 
         String row = "";
 
@@ -115,9 +116,8 @@ class Triangle {
         
     }
 
+    // print pyramid using one for loop, no recursion or other control structures
     static void genRowAnother(char usrLetter) {
-        
-        
 
         // ascii index of 'A'
         char c = 65;
@@ -143,18 +143,22 @@ class Triangle {
 
     }
 
+    // print the pyramid using pure recursion.
     static String genRowAnotherRecursive(char letter, char usrLetter) {
       
         // ascii index of 'A'
         // char c = 65;
         // find our window
         int diff = usrLetter - 64;
-        // pad out with blanks
+        // two strings to hold row data
         String row;
         String reversed;
 
+        // base case
         if (letter == 'A') {
             // start by creating a row of blanks equal to the distance from 'A' to usrLetter
+            // by creating a char[] of appropriate length, then .replace() null chars ("\0") with " " (spaces)
+            // then convert char[] into String
             row = new String(new char[diff]).replace("\0", " ");
             // concat first letter
             row += 'A';
@@ -164,16 +168,16 @@ class Triangle {
             row = genRowAnotherRecursive((char)(letter - 1), usrLetter);
             // concat next letter
             row += letter;
-            // trim off a leading blank
+            // trim off a leading blank so length remains constant
             row = row.substring(1);
             
         }
 
         // reverse the string, trim off the first letter (so no duplicate middle) and trim off trailing whitespace
         reversed = new StringBuilder(row).reverse().toString().substring(1, diff);
-        // print current row
+        // print this iteration's full row
         System.out.println(row + reversed);
-
+        // return *row* up the call stack
         return row;
 
     }
