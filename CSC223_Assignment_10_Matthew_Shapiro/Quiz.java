@@ -41,7 +41,7 @@ class Quiz {
             // ask the question
             System.out.print(q.getQuestion() + " ");
             // prompt for an answer,
-            // check the result, and store true/false to results table
+            // check the result, and store true/false to results hashtable
             quizResults.put(q, q.answerCorrect(scan.nextLine()));
         }
 
@@ -72,13 +72,13 @@ class Quiz {
     }
 
     public void calcTotalCorrect() {
-        int counter = 0;
+        int correctCounter = 0;
         for (Question q : questionList) {
             if (quizResults.get(q)) {
-                counter++;
+                correctCounter++;
             }
         }
-        this.totalCorrect = counter;
+        this.totalCorrect = correctCounter;
         this.score = (this.totalCorrect * 100) / questionList.size();
     }
 
